@@ -1,0 +1,33 @@
+{
+  "name": "react-app",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "http://localhost:3000/movies",
+  "dependencies": {
+    "@material-ui/core": "^4.9.11",
+    "@material-ui/icons": "^4.9.1",
+    "axios": "^0.19.2",
+    "query-string": "^6.12.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "0.9.5",
+    "redux": "^4.0.5",
+    "styled-components": "^5.1.0",
+    "vanilla-lazyload": "^15.1.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "client": "cd ../frontend && npm start",
+    "server": "cd ../backend && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  }
+}

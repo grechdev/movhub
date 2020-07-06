@@ -1,0 +1,75 @@
+.Form {
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    width: 500px;
+    min-height: 400px;
+}
+
+.Form__title {
+    font-size: 50px;
+    color: #543864;
+    align-self: flex-start;
+    letter-spacing: 0.075em;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.Form__actions {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Form__submit, .Form__cancel {
+    width: 45%;
+    border-radius: 5px;
+}
+
+.Form__submit {
+    font-size: 25px;
+    padding: 10px 30px;
+    background: none;
+    color: #543864;
+    border: 2px solid;
+    transition: 0.5s ease-out;
+    outline: none;
+}
+
+.Form__submit:hover {
+    opacity: 0.5;
+    transition: 0.1s ease-in-out;
+}
+
+.Form__submit:active {
+    opacity: 1;
+    color: #ffbd69;
+}
+
+.Form__submit:disabled, .Form__submit:disabled:hover {
+    opacity: 0.4;
+}
+
+.Form__cancel {
+    font-size: 25px;
+    color: #bbb;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
+    user-select: none;
+}
+
+.Form__cancel:hover {
+    opacity: 0.5
+}
+
+.Form__cancel:active {
+    opacity: 0.7;
+}

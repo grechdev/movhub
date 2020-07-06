@@ -1,0 +1,59 @@
+.Like {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.Like__count {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 5px;
+}
+
+.Like__button {
+    background: none;
+    outline: none;
+    transition: 0.1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    z-index: 10;
+    position: relative;
+    cursor: pointer;
+}
+
+.Like__button:hover {
+    transform: perspective(10px) translateZ(1px)
+}
+
+.Like__button:active {
+    transform: perspective(10px) translateZ(-1px)
+}
+
+.Like__icon {
+    font-size: 20px;
+}
+
+.likeBackground {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #543864;
+    padding-top: 1px;
+    margin-left: 5px;
+}
+
+.counterBackground {
+    background: #202040;
+    padding: 6px 20px;
+    padding-left: 90px;
+    margin-left: -20px;
+    border-radius: 35px;
+    transition: 0.2s ease-in; 
+}
