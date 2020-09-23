@@ -1,9 +1,8 @@
-.Input {
-    position: relative;
-    width: 100%;
-}
+.input {
+  position: relative;
+  width: 100%;
 
-.Input__field {
+  .field {
     padding: 10px 20px;
     width: 100%;
     height: 50px;
@@ -14,28 +13,24 @@
     z-index: 10;
     transition: 0.5s ease-out;
     border-radius: 5px;
-}
-
-.Input__textarea {
+  }
+  
+  .textarea {
     resize: none;
     height: 300px;
     font-size: 12px;
-}
-
-.Input__field[type="textarea"] {
+  }
+  
+  .field[type="textarea"] {
     resize: none;
     height: 300px;
-}
-
-.Input__field::placeholder {
+  }
+  
+  .field::placeholder {
     color: #ccc;
-}
+  }
 
-.Input + .Input {
-    margin-top: 30px;
-}
-
-.Input__error {
+  .error {
     position: absolute;
     top: 0;
     left: 0;
@@ -47,72 +42,77 @@
     width: 80%;
     z-index: -1;
     color: #ff6363;
+  }
+
+  .field:focus ~ .showErrorRight, .file .wrapper .showErrorRight{
+    animation: showErrorRight 0.5s ease;  
+    animation-fill-mode: forwards;
+  }
+}
+
+.input + .input {
+  margin-top: 30px;
 }
 
 .showErrorRight {
-    animation: hideError 0.5s ease;
-    left: 100%;
-    height: 100%;
-}
-
-
-.Input__field:focus ~ .showErrorRight, .File__wrapper .showErrorRight{
-    animation: showErrorRight 0.5s ease;  
-    animation-fill-mode: forwards;
+  animation: hideError 0.5s ease;
+  left: 100%;
+  height: 100%;
 }
 
 @keyframes showErrorRight {
-    from {
-        left: 90%;
-        opacity: 0;
-    }
-    to {
-        left: 100%;
-        opacity: 1;
-    }
+  from {
+    left: 90%;
+    opacity: 0;
+  }
+  to {
+    left: 100%;
+    opacity: 1;
+  }
 }
 
 .showErrorBottom {
-    animation: hideError 0.5s ease;
-    top: calc(100% + 3px);
-    font-size: 14px;
+  animation: hideError 0.5s ease;
+  top: calc(100% + 3px);
+  font-size: 14px;
 }
 
 .Input__field:focus ~ .showErrorBottom, .File__wrapper .showErrorBottom{
-    animation: showErrorBottom 0.5s ease;  
-    animation-fill-mode: forwards;
+  animation: showErrorBottom 0.5s ease;  
+  animation-fill-mode: forwards;
 }
 
 @keyframes showErrorBottom {
-    from {
-        top: 20%;
-        opacity: 0;
-    }
-    to {
-        top: calc(100% + 3px);
-        opacity: 1;
-    }
+  from {
+    top: 20%;
+    opacity: 0;
+  }
+  to {
+    top: calc(100% + 3px);
+    opacity: 1;
+  }
 }
 
 .hideError {
-    animation: hideError 0.3s ease;
-    animation-fill-mode: forwards;
+  animation: hideError 0.3s ease;
+  animation-fill-mode: forwards;
 }
 
 @keyframes hideError {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
-.Input + .File {
-    margin-top: 20px;
+.input + .file {
+  margin-top: 20px;
 }
 
-.File__input {
+.file {
+  .input {
     padding: 10px 25px;
     font-size: 20px;
     border-radius: 5px;
@@ -122,25 +122,26 @@
     transition: 0.1s ease-in-out;
     height: 100%;
     width: 30%;
-}
 
-.File__input:hover {
-    color: #bbb;
-}
-
-.File__wrapper {
+    &:hover {
+      color: #bbb;
+    }
+  }
+  
+  .wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 44px;
     position: relative;
-}
+  }
 
-.File__name {
+  .name {
     width: 65%;
     height: 100%;
     display: flex;
     align-items: center;
     text-overflow: ellipsis;
+  }
 }

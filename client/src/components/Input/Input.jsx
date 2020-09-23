@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import './Input.css'
 
 export const Input = props => {
 
@@ -12,7 +11,7 @@ export const Input = props => {
     return (
         <div className="Input">
             {props.type !== 'textarea' ? <input
-                className={`Input__field ${props.classList.join(' ')}`}
+                className={`field ${props.classList.join(' ')}`}
                 spellCheck={false}
                 style={borderStyle}
                 type={props.type}
@@ -21,7 +20,7 @@ export const Input = props => {
                 onChange={e => props.onChange(e.target.value)}
             /> :
             <textarea 
-                className={`Input__field Input__textarea ${props.classList.join(' ')}`}
+                className={`field textarea ${props.classList.join(' ')}`}
                 spellCheck={false}
                 style={borderStyle}
                 placeholder={props.placeholder}
@@ -58,10 +57,10 @@ export const File = props => {
     return (
         <div className="File">
             <input id="fileInput" onChange={handleChange} style={{display: 'none'}} type="file"/>
-            <div className="File__wrapper">
-                <label htmlFor="fileInput"><span style={{...borderStyle, ...textStyle}} className="File__input">Select file</span></label>
-                <div style={textStyle} className="File__name">{filename}</div>
-                <div className={`Input__error ${props.conditions.error ? 'showError' : 'hideError'}`}>{props.error}</div>
+            <div className="wrapper">
+                <label htmlFor="fileInput"><span style={{...borderStyle, ...textStyle}} className="input">Select file</span></label>
+                <div style={textStyle} className="name">{filename}</div>
+                <div className={`error ${props.conditions.error ? 'showError' : 'hideError'}`}>{props.error}</div>
             </div>
         </div>
     )

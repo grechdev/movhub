@@ -1,7 +1,6 @@
-import React, { useEffetc, useState, useEffect} from 'react'
-import './Like.css'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
+import React, { useState, useEffect} from 'react'
+
+import { MdFavorite, MdFavoriteBorder } from 'react-icons/md'
 
 const Like = props => {
 
@@ -17,14 +16,14 @@ const Like = props => {
     }, [props.isLiked])
 
     return (
-        <div className='Like'>
-            <button className={`Like__button ${props.background ? 'likeBackground' : ''}`} onClick={handleLike}>
+        <div className='like'>
+            <button className={`button ${props.background ? 'likeBackground' : ''}`} onClick={handleLike}>
                 {liked ? 
-                    <FavoriteIcon className='Like__icon' style={{ color: '#ff6363' }}/> :
-                    <FavoriteBorderIcon className='Like__icon' style={{ color: '#fff', opacity: 0.4 }}/>
+                    <MdFavorite className='icon' style={{ color: '#ff6363' }}/> :
+                    <MdFavoriteBorder className='icon' style={{ color: '#fff', opacity: 0.4 }}/>
                 }
             </button>
-            <div className={`Like__count ${props.background ? 'counterBackground' : ''}`} style={{opacity: liked ? 1 : 0.4}}>{props.count}</div>    
+            <div className={`count ${props.background ? 'counterBackground' : ''}`} style={{opacity: liked ? 1 : 0.4}}>{props.count}</div>    
         </div>
     )
 }

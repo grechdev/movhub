@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 import queryString from 'query-string'
-import './Pagination.css'
 
 const Pagination = props => {
 
@@ -57,15 +56,15 @@ const Pagination = props => {
     }, [maxPage, currentPage])
 
     return (
-        <div className="Pagination">
-            <button disabled={currentPage == 1} onClick={() => handlePrev()} className="Pagination__button Pagination__arrow">{'<'}</button>
+        <div className="pagination">
+            <button disabled={currentPage == 1} onClick={() => handlePrev()} className="button arrow">{'<'}</button>
             {
                 pages.map(page => {
                     return (
                         <button
                             key={page}
                             disabled={page == currentPage}
-                            className={`Pagination__button ${page == currentPage && 'Pagination__button_selected'}`}
+                            className={`button ${page == currentPage && 'selected'}`}
                             onClick={e => handlePage(e.target.textContent)}
                         >
                             {page}
@@ -73,7 +72,7 @@ const Pagination = props => {
                     )
                 })
             }
-            <button disabled={currentPage == maxPage} onClick={() => handleNext()} className="Pagination__button Pagination__arrow">{'>'}</button>
+            <button disabled={currentPage == maxPage} onClick={() => handleNext()} className="button arrow">{'>'}</button>
         </div>
     )
 }

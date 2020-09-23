@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import './Card.css'
 import Like from '../../components/Like/Like'
 
 const Card = props => {
@@ -31,12 +30,12 @@ const Card = props => {
     }, [props.liked])
 
     return (
-        <div className="Card" onClick={e => props.onClick(e, props.id)}>
-            <img className="Card__photo" src={'http://localhost:5000/' + props.path} alt=""/>
-            <div className="Card__info">
-                <div className="Card__title" style={{color: liked && '#ffbd69'}}>{props.title}</div>
+        <div className="card" onClick={e => props.onClick(e, props.id)}>
+            <img className="photo" src={'http://localhost:5000/' + props.path} alt=""/>
+            <div className="info">
+                <div className="title" style={{color: liked && '#ffbd69'}}>{props.title}</div>
                 <Like id={props.id} isLiked={liked} onLike={handleLike} count={likesCount}/>
-                <div className="Card__date">{dateHandler(props.date)}</div>
+                <div className="date">{dateHandler(props.date)}</div>
             </div>
         </div>
     )

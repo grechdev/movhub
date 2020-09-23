@@ -1,0 +1,190 @@
+.movie {
+  display: flex;
+  justify-content: space-between;
+  width: 1400px;
+  height: 760px;
+  margin: 50px auto;
+
+  .poster {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 760px;
+    width: 470px;
+  }
+
+  .img {
+    position: absolute;
+    object-fit: cover;
+    width: 470px;
+    height: 680px;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+
+    .actions {
+      display: flex;
+      margin: 23px 0;
+      height: 30px;
+      justify-content: flex-end;
+    }
+  }
+
+  .info {
+    height: 100%;
+    width: 870px;
+    height: 680px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .title {
+    color: #202040;
+    font-size: 55px;
+    font-weight: 900;
+    letter-spacing: 0.075em;
+    margin-bottom: 20px;
+  }
+
+  .description {
+    display: flex;
+    justify-content: flex-start;
+    height: 560px;
+    font-size: 26px;
+    color: #bfbfbf;
+    line-height: 30px;
+  }
+
+  .posted {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* padding: 5px 0; */
+    font-size: 20px;
+    color: #c4c4c4;
+  }
+
+  .owner {
+    color: #818181;
+  }
+
+  .back {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    letter-spacing: 0.12em;
+    color: #c8c8c8;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: 0.2s ease-out;
+    user-select: none;
+    cursor: pointer;
+
+    &:hover {
+      padding-right: 10px;
+      opacity: 1;
+
+      .tempArrow {
+        margin-right: 20px;
+      }
+    }
+
+    &:active {
+      .tempArrow {
+        margin-right: 30px;
+      }
+    }
+  }
+}
+
+
+.tempArrow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 4px;
+  width: 30px;
+  background: #c8c8c8;
+  margin-right: 15px;
+  position: relative;
+  transition: 0.3s ease-out; 
+}
+
+.tempArrow:before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-left: 4px solid #c8c8c8;
+  border-bottom: 4px solid #c8c8c8;
+  position: absolute;
+  transform: rotate(45deg)
+}
+
+.Utilities {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 15px;
+  left: 100%;
+}
+
+.Utilities__item {
+  border: 2px solid #ddd;
+  background: none;
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  opacity: 0.8;
+  transition: 0.2s ease-out;
+  outline: none;
+}
+
+.Utilities__item svg {
+  font-size: 25px;
+  color: #ddd;
+}
+
+.Utilities__item:hover, .Utilities__item:hover svg {
+  opacity: 1
+}
+
+.Utilities__item + .Utilities__item {
+  margin-top: 15px;
+}
+
+.Accept {
+  border-color: #63ff63;
+}
+
+.Accept:disabled {
+  opacity: 0.2;
+}
+
+.Accept svg {
+  color: #63ff63;
+}
+
+.Discard {
+  border-color: #ff6363;
+}
+.Discard svg {
+  color: #ff6363;
+}
+
+.editTitle, .editDescription {
+  width: 80%;
+}
+
+.editDescription {
+  resize: none;
+  height: 500px;
+  font-size: 16px;
+}
