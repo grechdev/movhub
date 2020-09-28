@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Input, File } from '../../components/Input/Input'
 import { useHistory } from 'react-router-dom'
-import axios from 'axios'
 import { useSelector } from 'react-redux'
-import { validator } from '../../scripts/validator'
+
+import axios from 'axios'
+
+import { validator } from '../scripts/validator'
+
+import { Input, File } from '../components/common/Input'
 
 const Upload = () => {
   const localStorage = window.localStorage

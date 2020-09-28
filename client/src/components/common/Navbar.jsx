@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import allActions from './../../actions'
-import queryString from 'query-string'
 import { NavLink, Link, useLocation, useHistory } from 'react-router-dom'
+
+import queryString from 'query-string'
+
+import allActions from '../../actions'
 
 const Navbar = () => {
   const localStorage = window.localStorage

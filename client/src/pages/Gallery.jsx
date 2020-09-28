@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import Card from '../../components/Card/Card'
 import { useSelector, useDispatch } from 'react-redux'
 import { useLocation, useHistory } from 'react-router-dom'
+
+import axios from 'axios'
 import queryString from 'query-string'
-import NotFound from '../../components/NotFound/NotFound'
-import Pagination from '../../components/Pagination/Pagination'
-import allActions from '../../actions'
 import LazyLoad from 'vanilla-lazyload'
+
+import allActions from '../actions'
+
+import Card from '../components/gallery/Card'
+import Pagination from '../components/gallery/Pagination'
+import NotFound from './NotFound'
 
 const Gallery = () => {
 

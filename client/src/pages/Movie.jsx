@@ -3,15 +3,15 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
 
-import Like from '../../components/Like/Like'
+import Like from '../components/common/Like'
 
 import { MdEdit, MdCheck, MdDelete, MdClose } from 'react-icons/md';
 
-import NotFound from '../../components/NotFound/NotFound'
-import { Input } from '../../components/Input/Input'
+import NotFound from './NotFound'
+import { Input } from '../components/common/Input'
 import { useHistory } from 'react-router-dom'
 
-import { validator } from '../../scripts/validator'
+import { validator } from '../scripts/validator'
 
 const Utilities = props => {
   const [deleteMode, setDeleteMode] = useState(false)

@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+
 import axios from 'axios'
+
 import { validator } from '../../scripts/validator'
-import { Input } from '../../components/Input/Input'
+
+import { Input } from '../../components/common/Input'
 
 const Register = () => {
   const history = useHistory()

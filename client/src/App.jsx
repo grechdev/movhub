@@ -1,16 +1,20 @@
 import React, { useEffect } from 'react'
-import Navbar from '../Navbar/Navbar'
-import Gallery from '../Gallery/Gallery'
-import Register from '../Register/Register'
-import Movie from '../Movie/Movie'
-import Login from '../Login/Login'
-import Upload from '../Upload/Upload'
-import NotFound from '../../components/NotFound/NotFound'
-import Loader from '../../components/Loader/Loader'
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import allActions from '../../actions'
+
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
+
 import axios from 'axios'
+
+import allActions from './actions'
+
+import Navbar from './components/common/Navbar'
+import Loader from './components/common/Loader'
+import Gallery from './pages/Gallery'
+import Register from './pages/auth/Register'
+import Movie from './pages/Movie'
+import Login from './pages/auth/Login'
+import Upload from './pages/Upload'
+import NotFound from './pages/NotFound'
 
 const App = () => {
   const localStorage = window.localStorage
@@ -36,7 +40,6 @@ const App = () => {
   useEffect(() => {
     fetchUser()
   }, [])
-
 
   return(
     <BrowserRouter>

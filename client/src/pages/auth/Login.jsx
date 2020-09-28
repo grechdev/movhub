@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import axios from 'axios'
-import allActions from '../../actions'
-import { validator } from '../../scripts/validator'
-import { Input } from '../../components/Input/Input'
 import { useHistory } from 'react-router-dom'
+
+import axios from 'axios'
+
+import { validator } from '../../scripts/validator'
+
+import allActions from '../../actions'
+
+import { Input } from '../../components/common/Input'
 
 const Login = () => {
   const localStorage = window.localStorage
