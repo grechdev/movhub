@@ -1,20 +1,15 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Redirect } from 'react-router-dom'
 
 import axios from 'axios'
 
 import allActions from './actions'
 
+import Routes from './Routes'
 import Navbar from './components/common/Navbar'
 import Loader from './components/common/Loader'
-import Gallery from './pages/Gallery'
-import Register from './pages/auth/Register'
-import Movie from './pages/Movie'
-import Login from './pages/auth/Login'
-import Upload from './pages/Upload'
-import NotFound from './pages/NotFound'
 
 const App = () => {
   const localStorage = window.localStorage
@@ -44,22 +39,13 @@ const App = () => {
   return(
     <BrowserRouter>
       <div className="app">
-        <Route exact path='/' component={() => <Redirect from='/' to='/movies'/>}/>
-
+        {/* <Route exact path='/' component={() => <Redirect from='/' to='/movies'/>}/> */}
         <Navbar/>
-        <Switch>
-          <Route strict exact path='/movies/search' component={() => <div>here's search</div>}/>
-          <Route strict exact path='/movies/post/:movieId' component={Movie}/>
-          <Route exact path='/movies' component={Gallery} />
-          <Route path='/register' component={Register} />
-          <Route path='/login' component={Login} />
-          <Route path='/upload' component={Upload} />
-          <Route path='*' component={NotFound} />
-        </Switch>
+        <Routes />
         {loaderVisible && <Loader />}
       </div>
     </BrowserRouter>
   )
 }
 
-export default App
+export default App;
