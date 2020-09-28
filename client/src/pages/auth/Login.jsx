@@ -5,8 +5,7 @@ import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 import { validator } from '../../scripts/validator'
-
-import allActions from '../../actions'
+import { setUser } from '../../ducks/user'
 
 import { Input } from '../../components/common/Input'
 
@@ -41,10 +40,10 @@ const Login = () => {
           axios.get(`http://localhost:5000/users/token/${localStorage.getItem('accessToken')}`)
             .then(res => {
               if (res.data.status) {
-                dispatch(allActions.userActions.setUser(res.data.result))
+                dispatch(setUser(res.data.result))
                 setTimeout(() => {
-                  history.push('/movies')
-                },500)
+                  history.push('/')
+                }, 500)
               }
             })
         }
@@ -52,7 +51,7 @@ const Login = () => {
         namesCacheTemp.push(username)
         setNamesCache(namesCacheTemp)
         handleUsername(username)
-        document.querySelector('.Login__username').focus()
+        // document.querySelector('.username').focus()
       })
     }
   }

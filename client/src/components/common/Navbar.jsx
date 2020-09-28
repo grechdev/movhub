@@ -4,7 +4,7 @@ import { NavLink, Link, useLocation, useHistory } from 'react-router-dom'
 
 import queryString from 'query-string'
 
-import allActions from '../../actions'
+import { setUser } from '../../ducks/user';
 
 const Navbar = () => {
   const localStorage = window.localStorage
@@ -12,7 +12,7 @@ const Navbar = () => {
   const location = useLocation()
   const history = useHistory()
   
-  const user = useSelector(state => state.user.user)
+  const user = useSelector(state => state.userReducer.user)
 
   const [search, setSearch] = useState(undefined)
 
@@ -23,7 +23,7 @@ const Navbar = () => {
   const handleSearch = () => {
     const query = queryString.parse(location.search)
     query.search = search
-    history.push('/movies?' + queryString.stringify(query))
+    history.push('?' + queryString.stringify(query))
   }
   
   const dispatch = useDispatch()
@@ -32,16 +32,16 @@ const Navbar = () => {
     const query = queryString.parse(location.search)
     query.sort = link
     query.page = 1
-    history.push('/movies?' + queryString.stringify(query))
+    history.push('?' + queryString.stringify(query))
   }
 
   useEffect(() => {
-    dispatch(allActions.userActions.setUser(user))
+    dispatch(setUser(user))
   }, [])
 
   const handleLogout = e => {
     e.preventDefault()
-    dispatch(allActions.userActions.setUser({}))
+    dispatch(setUser({}))
     localStorage.removeItem('accessToken')
   }
 
@@ -68,7 +68,7 @@ const Navbar = () => {
           </span>
         </div>
         <Link to='/upload' className="addMovie">+</Link>
-        { user.id !== undefined ? 
+        { user?.id !== undefined ? 
           <div className="user">
             <div className="name">{user.username}</div>
             <div className="id">{user.id}</div>

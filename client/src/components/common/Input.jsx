@@ -9,7 +9,7 @@ export const Input = props => {
   }
 
   return (
-    <div className="Input">
+    <div className="input">
       {props.type !== 'textarea' ? <input
         className={`field ${props.classList.join(' ')}`}
         spellCheck={false}
@@ -29,7 +29,7 @@ export const Input = props => {
       >
       </textarea>
       }
-      <div className={`Input__error ${props.conditions.error ? (props.appear == 'bottom' ? 'showErrorBottom': 'showErrorRight') : 'hideError'}`}>{props.error}</div>
+      <div className={`error ${props.conditions.error ? (props.appear == 'bottom' ? 'showErrorBottom': 'showErrorRight') : 'hideError'}`}>{props.error}</div>
     </div>
   )
 }

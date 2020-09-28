@@ -6,8 +6,6 @@ import axios from 'axios'
 import queryString from 'query-string'
 import LazyLoad from 'vanilla-lazyload'
 
-import allActions from '../actions'
-
 import Card from '../components/gallery/Card'
 import Pagination from '../components/gallery/Pagination'
 import NotFound from './NotFound'
@@ -15,7 +13,7 @@ import NotFound from './NotFound'
 const Gallery = () => {
 
   var lazyLoadInstance = new LazyLoad({
-    elements_selector: '.Card__photo'
+    elements_selector: '.card .photo'
   })
 
   const localStorage = window.localStorage
@@ -25,7 +23,7 @@ const Gallery = () => {
   const location = useLocation()
   const history = useHistory()
 
-  const user = useSelector(state => state.user.user)
+  const user = useSelector(state => state.userReducer.user)
 
   const [movies, setMovies] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
@@ -33,7 +31,7 @@ const Gallery = () => {
 
   const fetchMovies = () => {
     const accessToken = localStorage.getItem('accessToken')
-    dispatch(allActions.loaderActions.setLoader(true))
+    // dispatch(allActions.loaderActions.setLoader(true))
     axios({
       method: 'GET',
       url: 'http://localhost:5000/movies',
@@ -47,7 +45,7 @@ const Gallery = () => {
       setMovies(res.data.result)
       setCurrentPage(res.data.page)
       setMaxPage(res.data.maxPage)
-      dispatch(allActions.loaderActions.setLoader(false))
+      // dispatch(allActions.loaderActions.setLoader(false))
     })
     .catch(err => {
       if (err.message === 'Network Error') {
@@ -84,7 +82,7 @@ const Gallery = () => {
         movies.map(item => (
           <Card 
             key={item.id} 
-            liked={item.liked.includes(user.id)}
+            liked={item.liked.includes(user?.id)}
             id={item.id} 
             title={item.title} 
             path={item.path} 
