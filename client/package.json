@@ -28,7 +28,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "client": "cd ../frontend && npm start",
-    "server": "cd ../backend && npm start",
+    "server": "cd ../server && npm start",
     "dev": "concurrently \"npm run server\" \"npm run start\""
   },
   "browserslist": {
